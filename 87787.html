@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For Archana Vinod</title>
+
+<style>
+
+body{
+margin:0;
+padding:40px;
+text-align:center;
+color:white;
+font-family:Arial;
+overflow-x:hidden;
+
+/* Galaxy background */
+background-image:url("https://images.unsplash.com/photo-1462331940025-496dfbfc7564");
+background-size:cover;
+background-position:center;
+}
+
+/* Moon */
+
+.moon{
+position:fixed;
+top:40px;
+right:40px;
+width:120px;
+height:120px;
+background:#fff;
+border-radius:50%;
+box-shadow:0 0 60px white;
+animation:moonMove 10s infinite alternate;
+}
+
+@keyframes moonMove{
+from{transform:translateY(0px);}
+to{transform:translateY(20px);}
+}
+
+/* Stars */
+
+.star{
+position:fixed;
+width:3px;
+height:3px;
+background:white;
+border-radius:50%;
+animation:twinkle 2s infinite;
+}
+
+@keyframes twinkle{
+0%{opacity:0.2;}
+50%{opacity:1;}
+100%{opacity:0.2;}
+}
+
+/* Glow text */
+
+@keyframes glow{
+0%{text-shadow:0 0 10px white;}
+50%{text-shadow:0 0 25px #00ffff,0 0 40px #00ffff;}
+100%{text-shadow:0 0 10px white;}
+}
+
+h1{
+font-size:65px;
+animation:glow 2s infinite;
+}
+
+p{
+font-size:18px;
+animation:glow 3s infinite;
+}
+
+/* Photo */
+
+.photo{
+width:320px;
+border-radius:20px;
+box-shadow:0 0 30px white;
+margin-bottom:20px;
+}
+
+/* Button */
+
+button{
+padding:15px 30px;
+font-size:20px;
+border:none;
+border-radius:10px;
+background:#ff4b7d;
+color:white;
+cursor:pointer;
+margin-top:20px;
+}
+
+/* Surprise text */
+
+#surprise{
+font-size:35px;
+margin-top:30px;
+animation:glow 2s infinite;
+display:none;
+}
+
+/* Floating hearts */
+
+.heart{
+position:fixed;
+bottom:-20px;
+font-size:20px;
+animation:floatUp 6s linear infinite;
+}
+
+@keyframes floatUp{
+0%{transform:translateY(0);}
+100%{transform:translateY(-100vh);}
+}
+
+/* Confetti */
+
+.confetti{
+position:fixed;
+width:10px;
+height:10px;
+top:0;
+animation:fall 3s linear infinite;
+}
+
+@keyframes fall{
+0%{transform:translateY(-10px) rotate(0deg);}
+100%{transform:translateY(100vh) rotate(360deg);}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="moon"></div>
+
+<img src="archana.jpg" class="photo">
+
+<h1>𝐃𝐄𝐀𝐑 𝐀𝐑𝐂𝐇𝐀𝐍𝐀 𝐕𝐈𝐍𝐎𝐃 ❤️</h1>
+
+<div id="sentences"></div>
+
+<button onclick="showLove()">Click For Surprise ❤️</button>
+
+<div id="surprise">I LOVE YOU ARCHANA VINOD ❤️</div>
+
+<!-- Music -->
+
+<iframe width="0" height="0"
+src="https://www.youtube.com/embed/iZyU5jLQL-4?autoplay=1&loop=1&playlist=iZyU5jLQL-4">
+</iframe>
+
+<script>
+
+/* 100 sentences */
+
+let messages=[
+"You are the most beautiful part of my life ❤️",
+"Your smile makes my day brighter 😊",
+"I feel lucky to have you in my life 🍀",
+"You are my happiness every day 💖",
+"Your voice is my favorite sound 🎶",
+"You make my world colorful 🌈",
+"I always think about you 💭",
+"You are my special person 💕",
+"Every moment with you feels magical ✨",
+"You make my heart smile 😍"
+];
+
+let container=document.getElementById("sentences");
+
+for(let i=0;i<100;i++){
+let p=document.createElement("p");
+p.innerText=messages[i%messages.length];
+container.appendChild(p);
+}
+
+/* Surprise */
+
+function showLove(){
+document.getElementById("surprise").style.display="block";
+}
+
+/* Stars */
+
+for(let i=0;i<80;i++){
+let star=document.createElement("div");
+star.className="star";
+star.style.left=Math.random()*100+"vw";
+star.style.top=Math.random()*100+"vh";
+document.body.appendChild(star);
+}
+
+/* Hearts */
+
+for(let i=0;i<20;i++){
+let heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="❤️";
+heart.style.left=Math.random()*100+"vw";
+heart.style.animationDuration=(4+Math.random()*4)+"s";
+document.body.appendChild(heart);
+}
+
+/* Confetti */
+
+for(let i=0;i<40;i++){
+let conf=document.createElement("div");
+conf.className="confetti";
+conf.style.left=Math.random()*100+"vw";
+conf.style.backgroundColor="hsl("+Math.random()*360+",100%,50%)";
+conf.style.animationDuration=(2+Math.random()*3)+"s";
+document.body.appendChild(conf);
+}
+
+</script>
+
+</body>
+</html>
