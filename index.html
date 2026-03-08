@@ -78,14 +78,26 @@ button:hover{background:#ff1e60;}
 
 <body>
 
-<!-- Music button on top -->
-<button onclick="this.nextElementSibling.play(); this.style.display='none';">
+<!-- 1️⃣ Play Music button at the top -->
+<button id="playButton">
 🎵 Play Music ❤️
 </button>
 
-<audio loop>
+<audio id="song" loop>
   <source src="song.mp3" type="audio/mpeg">
 </audio>
+
+<script>
+const playBtn = document.getElementById("playButton");
+const song = document.getElementById("song");
+
+playBtn.addEventListener("click", function() {
+  song.play();              // Play the music
+  playBtn.style.display = "none";  // Hide the button
+});
+</script>
+
+
 
 <h1>𝐃𝐄𝐀𝐑 𝐀𝐑𝐂𝐇𝐀𝐍𝐀 𝐕𝐈𝐍𝐎𝐃 ❤️</h1>
 
@@ -142,3 +154,4 @@ for(let i = 0; i < 40; i++){
 
 </body>
 </html>
+
