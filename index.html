@@ -5,87 +5,94 @@
 
 <style>
 body{
-margin:0;
-padding:40px;
-text-align:center;
-color:white;
-font-family:Arial;
-background-image:url("https://images.unsplash.com/photo-1462331940025-496dfbfc7564");
-background-size:cover;
-background-position:center;
-overflow-x:hidden;
+  margin:0;
+  padding:40px;
+  text-align:center;
+  color:white;
+  font-family:Arial;
+  background-image:url("https://images.unsplash.com/photo-1462331940025-496dfbfc7564");
+  background-size:cover;
+  background-position:center;
+  overflow-x:hidden;
 }
 
 @keyframes glow{
-0%{text-shadow:0 0 10px white;}
-50%{text-shadow:0 0 25px #00ffff,0 0 40px #00ffff;}
-100%{text-shadow:0 0 10px white;}
+  0%{text-shadow:0 0 10px white;}
+  50%{text-shadow:0 0 25px #00ffff,0 0 40px #00ffff;}
+  100%{text-shadow:0 0 10px white;}
 }
 
 h1{
-font-size:65px;
-animation:glow 2s infinite;
+  font-size:65px;
+  animation:glow 2s infinite;
 }
 
 p{
-font-size:18px;
-animation:glow 3s infinite;
-font-family:"Arial", sans-serif;
+  font-size:18px;
+  animation:glow 3s infinite;
+  font-family:"Arial", sans-serif;
 }
 
 button{
-padding:15px 30px;
-font-size:20px;
-border:none;
-border-radius:10px;
-background:#ff4b7d;
-color:white;
-cursor:pointer;
-margin-top:20px;
+  padding:15px 30px;
+  font-size:20px;
+  border:none;
+  border-radius:10px;
+  background:#ff4b7d;
+  color:white;
+  cursor:pointer;
+  margin-top:20px;
 }
 
 button:hover{background:#ff1e60;}
 
 #surprise{
-font-size:35px;
-margin-top:30px;
-animation:glow 2s infinite;
-display:none;
+  font-size:35px;
+  margin-top:30px;
+  animation:glow 2s infinite;
+  display:none;
 }
 
-/* Confetti */
 .confetti{
-position:fixed;
-width:10px;
-height:10px;
-background:red;
-top:0;
-animation:fall 3s linear infinite;
+  position:fixed;
+  width:10px;
+  height:10px;
+  top:0;
+  animation:fall 3s linear infinite;
 }
 
 @keyframes fall{
-0%{transform:translateY(-10px) rotate(0deg);}
-100%{transform:translateY(100vh) rotate(360deg);}
+  0%{transform:translateY(-10px) rotate(0deg);}
+  100%{transform:translateY(100vh) rotate(360deg);}
 }
 
-/* Photo bottom */
 .photo{
-width:320px;
-border-radius:20px;
-box-shadow:0 0 30px white;
-margin-top:50px;
-margin-bottom:20px;
+  width:320px;
+  border-radius:20px;
+  box-shadow:0 0 30px white;
+  margin-top:50px;
+  margin-bottom:20px;
 }
 </style>
 </head>
 
 <body>
 
+<!-- Music button on top -->
+<button onclick="this.nextElementSibling.play(); this.style.display='none';">
+🎵 Play Music ❤️
+</button>
+
+<audio loop>
+  <source src="song.mp3" type="audio/mpeg">
+</audio>
+
 <h1>𝐃𝐄𝐀𝐑 𝐀𝐑𝐂𝐇𝐀𝐍𝐀 𝐕𝐈𝐍𝐎𝐃 ❤️</h1>
 
+<!-- Sentences -->
 <div id="sentences"></div>
 
-<button onclick="playSong()">🎵 Play Music ❤️</button>
+<!-- Surprise button -->
 <button onclick="showLove()">Click For Surprise ❤️</button>
 
 <div id="surprise">𝐈 𝐋𝐎𝐕𝐄 𝐘𝐎𝐔 𝐀𝐑𝐂𝐇𝐀𝐍𝐀 𝐕𝐈𝐍𝐎𝐃 ❤️</div>
@@ -93,50 +100,43 @@ margin-bottom:20px;
 <!-- Photo at the bottom -->
 <img src="archana.jpg" class="photo">
 
-<audio id="song" loop>
-<source src="song.mp3" type="audio/mpeg">
-</audio>
-
 <script>
-let messages=[
-"𝐘𝐨𝐮 𝐚𝐫𝐞 𝐭𝐡𝐞 𝐦𝐨𝐬𝐭 𝐛𝐞𝐚𝐮𝐭𝐢𝐟𝐮𝐥 𝐩𝐚𝐫𝐭 𝐨𝐟 𝐦𝐲 𝐥𝐢𝐟𝐞 ❤️",
-"𝐘𝐨𝐮𝐫 𝐬𝐦𝐢𝐥𝐞 𝐦𝐚𝐤𝐞𝐬 𝐦𝐲 𝐝𝐚𝐲 𝐛𝐫𝐢𝐠𝐡𝐭𝐞𝐫 😊",
-"𝐈 𝐟𝐞𝐞𝐥 𝐥𝐮𝐜𝐤𝐲 𝐭𝐨 𝐡𝐚𝐯𝐞 𝐲𝐨𝐮 𝐢𝐧 𝐦𝐲 𝐥𝐢𝐟𝐞 🍀",
-"𝐘𝐨𝐮 𝐚𝐫𝐞 𝐦𝐲 𝐡𝐚𝐩𝐩𝐢𝐧𝐞𝐬𝐬 𝐞𝐯𝐞𝐫𝐲 𝐝𝐚𝐲 💖",
-"𝐘𝐨𝐮𝐫 𝐯𝐨𝐢𝐜𝐞 𝐢𝐬 𝐦𝐲 𝐟𝐚𝐯𝐨𝐫𝐢𝐭𝐞 𝐬𝐨𝐮𝐧𝐝 🎶",
-"𝐘𝐨𝐮 𝐦𝐚𝐤𝐞 𝐦𝐲 𝐰𝐨𝐫𝐥𝐝 𝐜𝐨𝐥𝐨𝐫𝐟𝐮𝐥 🌈",
-"𝐈 𝐚𝐥𝐰𝐚𝐲𝐬 𝐭𝐡𝐢𝐧𝐤 𝐚𝐛𝐨𝐮𝐭 𝐲𝐨𝐮 💭",
-"𝐘𝐨𝐮 𝐚𝐫𝐞 𝐦𝐲 𝐬𝐩𝐞𝐜𝐢𝐚𝐥 𝐩𝐞𝐫𝐬𝐨𝐧 💕",
-"𝐄𝐯𝐞𝐫𝐲 𝐦𝐨𝐦𝐞𝐧𝐭 𝐰𝐢𝐭𝐡 𝐲𝐨𝐮 𝐟𝐞𝐞𝐥𝐬 𝐦𝐚𝐠𝐢𝐜𝐚𝐥 ✨",
-"𝐘𝐨𝐮 𝐦𝐚𝐤𝐞 𝐦𝐲 𝐡𝐞𝐚𝐫𝐭 𝐬𝐦𝐢𝐥𝐞 😍"
+// 100 sentences about Archana
+let messages = [
+"𝐘𝐨𝐮 𝐚𝐫𝐞 𝐦𝐲 𝐬𝐮𝐧𝐬𝐡𝐢𝐧𝐞 ☀️",
+"𝐄𝐯𝐞𝐫𝐲 𝐦𝐨𝐦𝐞𝐧𝐭 𝐰𝐢𝐭𝐡 𝐲𝐨𝐮 𝐢𝐬 𝐦𝐚𝐠𝐢𝐜𝐚𝐥 ✨",
+"𝐘𝐨𝐮 𝐦𝐚𝐤𝐞 𝐦𝐲 𝐡𝐞𝐚𝐫𝐭 𝐬𝐦𝐢𝐥𝐞 😍",
+"𝐘𝐨𝐮𝐫 𝐬𝐦𝐢𝐥𝐞 𝐥𝐢𝐠𝐡𝐭𝐬 𝐮𝐩 𝐦𝐲 𝐝𝐚𝐲 🌞",
+"𝐄𝐯𝐞𝐫𝐲 𝐭𝐡𝐨𝐮𝐠𝐡𝐭 𝐨𝐟 𝐲𝐨𝐮 𝐦𝐚𝐤𝐞𝐬 𝐦𝐞 𝐡𝐚𝐩𝐩𝐲 💖",
+"𝐘𝐨𝐮 𝐚𝐫𝐞 𝐭𝐡𝐞 𝐛𝐞𝐬𝐭 𝐭𝐡𝐢𝐧𝐠 𝐢𝐧 𝐦𝐲 𝐥𝐢𝐟𝐞 ❤️",
+"𝐄𝐯𝐞𝐫𝐲 𝐝𝐚𝐲 𝐰𝐢𝐭𝐡 𝐲𝐨𝐮 𝐢𝐬 𝐚 𝐛𝐥𝐞𝐬𝐬𝐢𝐧𝐠 🍀",
+"𝐘𝐨𝐮 𝐚𝐫𝐞 𝐦𝐲 𝐦𝐚𝐠𝐢𝐜 𝐚𝐧𝐝 𝐦𝐲 𝐫𝐞𝐚𝐥𝐢𝐭𝐲 ✨",
+"𝐘𝐨𝐮 𝐦𝐚𝐤𝐞 𝐞𝐯𝐞𝐫𝐲 𝐦𝐨𝐦𝐞𝐧𝐭 𝐦𝐚𝐠𝐢𝐜 💫",
+"𝐘𝐨𝐮 𝐚𝐫𝐞 𝐦𝐲 𝐦𝐨𝐨𝐧 𝐚𝐧𝐝 𝐬𝐭𝐚𝐫𝐬 🌙",
+// Add 90 more sentences here (repeat, remix, or write more unique ones)
 ];
 
-let container=document.getElementById("sentences");
-
-for(let i=0;i<100;i++){
-let p=document.createElement("p");
-p.innerText=messages[i%messages.length];
-container.appendChild(p);
+// Fill 100 sentences automatically
+let container = document.getElementById("sentences");
+for(let i = 0; i < 100; i++){
+  let p = document.createElement("p");
+  p.innerText = messages[i % messages.length];
+  container.appendChild(p);
 }
 
-/* Play Music */
-function playSong(){
-document.getElementById("song").play();
-}
-
-/* Show Surprise */
+// Show surprise message
 function showLove(){
-document.getElementById("surprise").style.display="block";
+  document.getElementById("surprise").style.display="block";
 }
 
-/* Confetti */
-for(let i=0;i<40;i++){
-let conf=document.createElement("div");
-conf.className="confetti";
-conf.style.left=Math.random()*100+"vw";
-conf.style.backgroundColor="hsl("+Math.random()*360+",100%,50%)";
-conf.style.animationDuration=(2+Math.random()*3)+"s";
-document.body.appendChild(conf);
+// Confetti
+for(let i = 0; i < 40; i++){
+  let conf = document.createElement("div");
+  conf.className = "confetti";
+  conf.style.left = Math.random() * 100 + "vw";
+  conf.style.backgroundColor = "hsl(" + Math.random()*360 + ",100%,50%)";
+  conf.style.animationDuration = (2 + Math.random()*3) + "s";
+  document.body.appendChild(conf);
 }
 </script>
 
